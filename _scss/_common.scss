@@ -1,4 +1,446 @@
-/**
-* 公開画面・編集画面共有のCSS
-* Origin III のSCSSファイルを参考の独自に作成してください
-*/
+
+:root {
+    // --color-primary: #2cc9c1;
+}
+
+@mixin label-bg($line-height:3rem) {
+    background: #F0FAFA;
+    padding: .5em 1.5em;
+    border-radius: 30px;
+    margin-right: 0.5rem;
+    line-height: $line-height;
+}
+
+/*-------------------------------------------*/
+/*	ボタンデザイン
+/*-------------------------------------------*/
+.btn{
+    border-radius: 30px;
+} 
+.vk_post.card .vk_post_btnOuter .btn{
+    display: block;
+    font-size: var(--vk-size-text);
+    border-radius: 30px;
+}
+//ヘッダーウィジェット内のボタン
+.site-header-sub{
+    .widget_vkexunit_button{
+        margin-left: 0.5rem;
+    }
+}
+
+/*-------------------------------------------*/
+/*	bbpress　
+/*-------------------------------------------*/
+/* メールアドレスを非表示 */
+fieldset.bbp-form fieldset.bbp-form p:nth-child(3) {
+	display: none;
+}
+/* ウェブサイトを非表示 */
+fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
+	display: none;
+}
+
+/*-------------------------------------------*/
+/*	bbPressフォーラム一覧画面
+/*-------------------------------------------*/
+#bbpress-forums{
+    ul.bbp-forums { 
+        border: none;
+    }
+    //フォーラムのヘッダーなど非表示
+    // li.bbp-header, 
+    li.bbp-footer,
+    li.bbp-body li.bbp-forum-reply-count, 
+    li.bbp-body li.bbp-forum-freshness {
+    display: none;
+    }
+
+    li.bbp-body ul.forum {
+        border-top: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+    li.bbp-forum-info {
+        -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+        flex-grow: 2;
+    }
+    li.bbp-body li.bbp-forum-topic-count {
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 15px;
+        width: 25px;
+        min-width: 25px;
+        height: 25px;
+        line-height: 25px;
+        background: #ffffff;
+        border: 1px solid var(--vk-color-border);
+      } 
+}
+
+  
+  #bbpress-forums .bbp-forum-info .bbp-forum-content {
+    // position: relative;
+    // display: inline-block;
+    // padding: .5em 1em .5em 5px;
+    // min-width: 200px;
+    // max-width: 100%;
+    // border-radius: 3px;
+    // background: var(--vk-color-footer-bg);
+  }
+  
+  #bbpress-forums .bbp-forum-info .bbp-forum-content::before {
+    // content: "";
+    // position: absolute;
+    // top: -20px;
+    // left: 30px;
+    // margin-left: -15px;
+    // border: 10px solid transparent;
+    // border-bottom: 10px solid var(--vk-color-footer-bg);
+  }
+  
+  #bbpress-forums .bbp-forum-info a.bbp-forum-title {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900;
+    // color: unset;
+    /*カテゴリー名の文字色*/
+    text-decoration: none;
+    padding: 15px 15px 15px 0;
+  }
+  
+/*-------------------------------------------*/
+/*	bbPressトピック一覧画面
+/*-------------------------------------------*/ 
+.bbp-template-notice, #bbpress-forums li.bbp-topic-title p.bbp-topic-meta,
+#bbpress-forums li.bbp-topic-voice-count, #bbpress-forums li.bbp-topic-freshness, 
+#bbpress-forums .bbp-pagination {
+   //display: none;
+}
+#bbpress-forums {
+    a, a:hover{
+        text-decoration: none;
+    }  
+    ul.bbp-topics, 
+    li.bbp-header {
+        border-left: none;
+        border-right: none;
+        border-top:none;
+        background-color: var(--vk-color-footer-bg);
+    }
+
+
+    div.odd, 
+    ul.odd {
+        background: white;
+    }
+
+    li.bbp-body ul.topic {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    li.bbp-body ul.topic li.bbp-topic-title {
+
+        .bbp-topic-meta{
+            display: none;
+        }
+    }
+    .widget_display_replies img.avatar, 
+    .widget_display_topics img.avatar, 
+    div.bbp-template-notice img.avatar,
+    p.bbp-topic-meta img.avatar, 
+    ul.bbp-reply-revision-log img.avatar,
+    ul.bbp-topic-revision-log img.avatar{
+        border:none;
+        border-radius: 50%;
+    }
+
+    li.bbp-body ul.topic li.bbp-topic-title a.bbp-topic-permalink {
+        display: block;
+        text-decoration: none;
+        padding: 15px 15px 15px 0;
+    }
+
+
+  
+    /*-------------------------------------------*/
+    /*	bbPressトピック作成フォーム
+    /*-------------------------------------------*/   
+    div.bbp-topic-form {
+        form#new-post fieldset.bbp-form {
+            background: white;
+            border: none;
+            padding: 0;
+        }
+        form#new-post fieldset.bbp-form legend {
+            position: relative;
+            padding: 10px 40px 10px 10px;
+            margin: 0 0 1em;
+            line-height: 20px;
+            background: #F0FAFA;
+            border-left: 40px solid var(--vk-color-primary);
+        }
+        form#new-post fieldset.bbp-form legend::before {
+            content: "\f5ad";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 2em;
+            color: white;
+            position: absolute;
+            left: -32px;
+        }
+        form#new-post fieldset.bbp-form label[for="bbp_stick_topic"],
+        form#new-post fieldset.bbp-form label[for="bbp_topic_status"],
+        form#new-post fieldset.bbp-form br {
+            display: none;
+        }
+        form#new-post fieldset.bbp-form>div>p:nth-of-type(1)::before{
+            content: "タイトル";
+        }
+        
+        form#new-post fieldset.bbp-form>div>div.bbp-the-content-wrapper::before {
+            content: "本文";
+        }
+        
+        form#new-post fieldset.bbp-form>div>p:nth-of-type(1)::before,
+        form#new-post fieldset.bbp-form>div>div.bbp-the-content-wrapper::before{         
+            @include label-bg();
+        }
+
+        //トピックのタイトルと本文
+        form#new-post fieldset.bbp-form input#bbp_topic_title,
+        form#new-post fieldset.bbp-form textarea#bbp_topic_content {
+            width: 100%;
+            border: 1px solid var(--vk-color-border);
+            background-color: #ffffff;
+            font-size: var(--vk-size-text);
+            line-height: var(--vk-line-height);
+            box-shadow: none;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        form#new-post fieldset.bbp-form .bbp-submit-wrapper {
+            float: none;
+            text-align: center;
+        }
+
+        form#new-post fieldset.bbp-form .bbp-submit-wrapper button#bbp_topic_submit {
+            width: 100%;
+            margin: auto;
+            color: white;
+            border: none;
+            border-radius: 30px;
+        }
+
+    }//div.bbp-topic-form 
+        
+    fieldset.bbp-form label[for="bbp_forum_id"]{
+        @include label-bg(1rem);
+    }
+
+    //トピックのタイトルとセレクト
+    fieldset.bbp-form input[type=text], 
+    fieldset.bbp-form select {
+        min-height: 38px;
+        height: 38px;
+    }
+    //トピック詳細画面
+    ul.bbp-replies {
+        border: none;
+    }
+
+    div.bbp-reply-header {
+        background-color: white;
+        border-top: none;
+    }
+
+    div.bbp-reply-author {
+        width: 15%;
+    }
+
+    .bbp-author-role,
+    .bbp-reply-ip, 
+    .bbp-reply-permalink, 
+    span.bbp-admin-links {
+        display: none;
+    }
+
+    .bbp-meta {
+        text-align: right;
+    }
+
+    .bbp-body span.bbp-reply-post-date {
+        color: #ccc;
+    }
+
+    div.bbp-reply-author img.avatar {
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+
+    div.bbp-reply-author a.bbp-author-name {
+
+        text-decoration: none;
+    }
+
+    //吹き出し本体 - 枠線付きの吹き出し
+    div.bbp-reply-content {
+        position: relative;
+        display: inline-block;
+        padding: 30px;
+        margin-left: 20px;
+        min-width: 200px;
+        max-width: calc( 85% - 20px);
+        border-radius: 0.4rem;
+        border: 1px solid var(--vk-color-border);
+        background-color: #ffffff;
+        font-size: var(--vk-size-text);
+        line-height: var(--vk-line-height);
+        //三角アイコン - 枠線付きの吹き出し 
+        &::before,
+        &::after  {
+            right: 100%;
+            top: 30px;
+            border: solid transparent;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        &::before {
+            border-color: rgba(221, 221, 221, 0);
+            border-right-color:  var(--vk-color-border);
+            border-width: 11px;
+            margin-top: -11px;
+          }
+        &::after {
+            border-color: rgba(255, 255, 255, 0);
+            border-right-color: #ffffff;
+            border-width: 10px;
+            margin-top: -10px;
+            visibility: unset;
+        }
+    }
+
+
+    /*返信フォーム*/
+    div.bbp-reply-form {
+        form#new-post fieldset.bbp-form legend {
+            position: relative;
+            padding: 10px 40px 10px 10px;
+            margin: 0 0 1em;
+            line-height: 20px;
+            background: #F0FAFA;
+            border-left: 40px solid var(--vk-color-primary);
+        }
+        form#new-post fieldset.bbp-form legend::before {
+            content: "\f5ad";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 2em;
+            color: white;
+            position: absolute;
+            left: -32px;
+        }
+        form#new-post fieldset.bbp-form {
+            border: none;
+            padding: 0;
+            background: white;
+        }
+        form#new-post fieldset.bbp-form textarea#bbp_reply_content {
+            width: 100%;
+            border: 1px solid var(--vk-color-border);
+            background-color: #ffffff;
+            font-size: var(--vk-size-text);
+            line-height: var(--vk-line-height);
+            box-shadow: none;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        form#new-post fieldset.bbp-form .bbp-submit-wrapper {
+            float: none;
+            text-align: center;
+        }
+    }//div.bbp-reply-form 
+    
+    @media(max-width:480px) {
+        .bbp-body div.bbp-reply-author {
+          margin: 0;
+          min-height: 85px;
+        }
+        .bbp-body div.bbp-reply-content {
+          margin: 0;
+          max-width: 100%;
+        }
+        .bbp-body div.bbp-reply-content p {
+          padding: .5em 1em;
+          margin: 0;
+        }
+        div.bbp-reply-content::before {
+            top: -10px;
+            left: 20px;
+          border: 10px solid transparent;
+          border-bottom: 10px solid var(--vk-color-border);
+        }
+        div.bbp-reply-content::after {
+            top: -8px;
+            left: 20px;
+            border: 10px solid transparent;
+            border-bottom: 10px solid #ffffff;
+          }
+      }
+    
+ }//#bbpress-forums 
+  
+
+  
+
+  
+
+  
+  /*匿名投稿を可能にする時用*/
+  fieldset.bbp-form p.form-allowed-tags,
+  fieldset.bbp-form>div>fieldset.bbp-form {
+     display: none;
+  }
+
+/*-------------------------------------------*/
+/*	bbPressトピック詳細ページ
+/*-------------------------------------------*/ 
+.single{
+    .bbp-header{
+        display: none;
+    }
+}
+
+/*-------------------------------------------*/
+/*	bbpress　
+/*-------------------------------------------*/
+.bbp-login-form{
+    
+   .bbp-email input,
+   .bbp-password input,
+   .bbp-username input,
+   .bbp-form{
+       border:1px solid var(--vk-color-border);
+   }
+   .bbp-form{padding: 1rem;}
+   label[for="rememberme"]{
+       width: auto;
+   }
+}
