@@ -408,9 +408,32 @@ fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
  }//#bbpress-forums 
   
 
-  
+/*-------------------------------------------*/
+/*	bbPress検索フォーム
+/*-------------------------------------------*/
+#bbp-search-form {
+    #bbp_search_submit{
+    @media(max-width:480px) {
+        border: 1px solid var(--vk-color-border-form);
+        border-left: none;
+        padding-left: .5em;
+        padding-right: .5em;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        letter-spacing: 1px;
+        width: 30%; 
+        padding-top: .8em;
+        padding-bottom: .8em;
+    }
+    }
+    button,input{
+        @media(max-width:480px) {
+            padding: .8em 1em;
+            font-size: 12px;
+        }
+    }
+}
 
-  
 
   
   /*匿名投稿を可能にする時用*/
