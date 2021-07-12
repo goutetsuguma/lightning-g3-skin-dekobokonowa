@@ -2,8 +2,8 @@
 /**
  * Plugin Name:     Lightning G3 Skin Dekobokonowa
  * Plugin URI:      （プラグインの解説ページのURL）
- * Description:     （プラグインの説明）
- * Author:          （作者名）
+ * Description:     WordPressテーマ「Lightning」と掲示板やフォーラムが作れるWordPressプラグイン「bbpress」を使用した時の、デザインスキンです。
+ * Author:          goutetsuguma
  * Author URI:      （作者のサイトのURL）
  * Text Domain:     lightning-g3-skin-dekobokonowa
  * Domain Path:     /languages

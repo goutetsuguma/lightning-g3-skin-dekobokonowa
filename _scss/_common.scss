@@ -1,8 +1,4 @@
 
-:root {
-    // --color-primary: #2cc9c1;
-}
-
 @mixin label-bg($line-height:3rem) {
     background: #F0FAFA;
     padding: .5em 1.5em;
@@ -117,8 +113,10 @@ fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
 /*-------------------------------------------*/
 /*	bbPressトピック一覧画面
 /*-------------------------------------------*/ 
-.bbp-template-notice, #bbpress-forums li.bbp-topic-title p.bbp-topic-meta,
-#bbpress-forums li.bbp-topic-voice-count, #bbpress-forums li.bbp-topic-freshness, 
+.bbp-template-notice, 
+#bbpress-forums li.bbp-topic-title p.bbp-topic-meta,
+#bbpress-forums li.bbp-topic-voice-count, 
+#bbpress-forums li.bbp-topic-freshness, 
 #bbpress-forums .bbp-pagination {
    //display: none;
 }
@@ -134,10 +132,10 @@ fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
         background-color: var(--vk-color-footer-bg);
     }
 
+    div.odd,
+    ul.odd{
+    background:#fff;
 
-    div.odd, 
-    ul.odd {
-        background: white;
     }
 
     li.bbp-body ul.topic {
@@ -267,10 +265,6 @@ fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
         border-top: none;
     }
 
-    div.bbp-reply-author {
-        width: 15%;
-    }
-
     .bbp-author-role,
     .bbp-reply-ip, 
     .bbp-reply-permalink, 
@@ -283,60 +277,86 @@ fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
     }
 
     .bbp-body span.bbp-reply-post-date {
-        color: #ccc;
+        color: var(--vk-color-text-light);
     }
 
-    div.bbp-reply-author img.avatar {
-        margin: 0 auto;
-        border-radius: 50%;
-    }
+    .bbp-body{
+        div.bbp-reply-author {
+            width: 15%;
+            margin: 0;
+            min-height: 85px;
+            border-bottom: none;
+            a.bbp-author-name {
 
-    div.bbp-reply-author a.bbp-author-name {
-
-        text-decoration: none;
-    }
-
-    //吹き出し本体 - 枠線付きの吹き出し
-    div.bbp-reply-content {
-        position: relative;
-        display: inline-block;
-        padding: 30px;
-        margin-left: 20px;
-        min-width: 200px;
-        max-width: calc( 85% - 20px);
-        border-radius: 0.4rem;
-        border: 1px solid var(--vk-color-border);
-        background-color: #ffffff;
-        font-size: var(--vk-size-text);
-        line-height: var(--vk-line-height);
-        //三角アイコン - 枠線付きの吹き出し 
-        &::before,
-        &::after  {
-            right: 100%;
-            top: 30px;
-            border: solid transparent;
-            content: "";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
+                text-decoration: none;
+            }
+            img.avatar {
+                margin: 0 auto;
+                border-radius: 50%;
+            }
         }
-        &::before {
-            border-color: rgba(221, 221, 221, 0);
-            border-right-color:  var(--vk-color-border);
-            border-width: 11px;
-            margin-top: -11px;
-          }
-        &::after {
-            border-color: rgba(255, 255, 255, 0);
-            border-right-color: #ffffff;
-            border-width: 10px;
-            margin-top: -10px;
-            visibility: unset;
+
+        //吹き出し本体 - 枠線付きの吹き出し
+        div.bbp-reply-content {
+            position: relative;
+            display: block;
+            padding: 1.5rem;
+            margin-left: 130px;
+            min-width: 200px;
+            max-width: calc( 85% - 20px);
+            border-radius: 0.4rem;
+            border: 1px solid var(--vk-color-border);
+            background-color: #ffffff;
+            font-size: var(--vk-size-text);
+            line-height: var(--vk-line-height);
+
+            @media(max-width:480px) {
+                  margin: 0;
+                  max-width: 100%;
+            }
+
+            //三角アイコン - 枠線付きの吹き出し 
+            &::before,
+            &::after  {
+                right: 100%;
+                top: 30px;
+                border: solid transparent;
+                content: "";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            &::before {
+                border-color: rgba(221, 221, 221, 0);
+                border-right-color:  var(--vk-color-border);
+                border-width: 11px;
+                margin-top: -11px;
+                @media(max-width:480px) {
+                    top: -10px;
+                    left: 20px;
+                    border: 10px solid transparent;
+                    border-bottom: 10px solid var(--vk-color-border);
+                }
+
+            }
+            &::after {
+                border-color: rgba(255, 255, 255, 0);
+                border-right-color: #ffffff;
+                border-width: 10px;
+                margin-top: -10px;
+                visibility: unset;
+
+                @media(max-width:480px) {
+                    top: -8px;
+                    left: 20px;
+                    border: 10px solid transparent;
+                    border-bottom: 10px solid #ffffff;
+                }
+
+            }
         }
     }
-
-
     /*返信フォーム*/
     div.bbp-reply-form {
         form#new-post fieldset.bbp-form legend {
@@ -378,32 +398,7 @@ fieldset.bbp-form fieldset.bbp-form p:nth-child(4) {
         }
     }//div.bbp-reply-form 
     
-    @media(max-width:480px) {
-        .bbp-body div.bbp-reply-author {
-          margin: 0;
-          min-height: 85px;
-        }
-        .bbp-body div.bbp-reply-content {
-          margin: 0;
-          max-width: 100%;
-        }
-        .bbp-body div.bbp-reply-content p {
-          padding: .5em 1em;
-          margin: 0;
-        }
-        div.bbp-reply-content::before {
-            top: -10px;
-            left: 20px;
-          border: 10px solid transparent;
-          border-bottom: 10px solid var(--vk-color-border);
-        }
-        div.bbp-reply-content::after {
-            top: -8px;
-            left: 20px;
-            border: 10px solid transparent;
-            border-bottom: 10px solid #ffffff;
-          }
-      }
+
     
  }//#bbpress-forums 
   
