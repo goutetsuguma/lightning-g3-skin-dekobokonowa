@@ -1,4 +1,7 @@
 
+:root {
+    --vk-size-radius-btn-primary:100px;
+}
 @mixin label-bg($line-height:3rem) {
     background: #F0FAFA;
     padding: .5em 1.5em;
