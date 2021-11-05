@@ -1,8 +1,8 @@
 {
-  "name": "lightning-g3-skin-sample",
+  "name": "lightning-g3-skin-dekobokonowa",
   "version": "0.1.0",
   "main": "Gruntfile.js",
-  "author": "YOUR NAME HERE",
+  "author": "goutetsuguma",
   "scripts": {
     "start": "grunt default",
     "readme": "grunt readme",
