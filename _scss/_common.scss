@@ -11,7 +11,7 @@
 /*	ボタンデザイン
 /*-------------------------------------------*/
 .btn{
-    border-radius: 30px;
+    border-radius:var(--vk-size-radius-btn-primary);
 } 
 .vk_post.card .vk_post_btnOuter .btn{
     display: block;
