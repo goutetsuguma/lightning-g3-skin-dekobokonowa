@@ -7,7 +7,7 @@
  * Author URI:      （作者のサイトのURL）
  * Text Domain:     lightning-g3-skin-dekobokonowa
  * Domain Path:     /languages
- * Version:         0.0.3
+ * Version:         0.0.4
  *
  * @package         LIGHTNING_G3_SKIN_DEKOBOKONOWA
  */
